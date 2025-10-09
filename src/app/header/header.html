@@ -1,0 +1,30 @@
+<div class="top-glow"></div>
+<header class="nav">
+  <div class="nav-inner">
+    <!-- โลโก้ -->
+  <a href="#" class="brand" aria-label="TopUpStation Home">
+  <img src="/images/Logo.png" alt="TopUpStation Logo" class="logo" />
+  <span class="title">TopUpStation</span>
+</a>
+
+    <!-- เมนู -->
+    <ul class="menu">
+      <li><a href="#">หน้าแรก</a></li>
+      <li><a href="#">เกมทั้งหมด</a></li>
+      <li><a href="/profile">โปรไฟล์</a></li>
+      <li><a href="/register">สมัครสมาชิก</a></li>
+    </ul>
+
+    <!-- ค้นหา + ปุ่ม -->
+    <div class="right-section">
+      <label class="search-wrap" role="search">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+          <path d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 1 0-.7.7l.27.28v.79l4.5 4.5 1.5-1.5-4.5-4.5Zm-6 1.5a5 5 0 1 1 0-10 5 5 0 0 1 0 10Z" fill="currentColor"/>
+        </svg>
+        <input class="search-input" type="search" placeholder="ค้นหา..." />
+      </label>
+   <button class="btn-login" (click)="goLogin()">เข้าสู่ระบบ</button>
+   <button class="btn-login" (click)="goLogout()">ออกจากระบบ</button>
+    </div>
+  </div>
+</header>

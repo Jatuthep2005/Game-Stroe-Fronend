@@ -1,0 +1,45 @@
+<div class="profile-container" *ngIf="!loading; else loadingTpl">
+  <div class="profile-box">
+    <!-- ส่วนหัวโปรไฟล์ -->
+    <div class="profile-header">
+      <div class="avatar-wrap">
+        <img *ngIf="user?.profileImage" [src]="user.profileImage" alt="avatar" />
+        <div class="avatar-fallback" *ngIf="!user?.profileImage">
+          <svg viewBox="0 0 24 24" width="48" height="48" aria-hidden="true">
+            <path fill="currentColor"
+              d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5Zm0 2c-5.33 0-8 2.67-8 6v1h16v-1c0-3.33-2.67-6-8-6Z" />
+          </svg>
+        </div>
+      </div>
+
+      <div class="profile-info">
+        <div class="row">
+          <div class="label">Name</div>
+          <div class="value">{{ user?.name }}</div>
+        </div>
+        <div class="row">
+          <div class="label">Email</div>
+          <div class="value">{{ user?.email }}</div>
+        </div>
+        <div class="row">
+          <div class="label">Balance</div>
+          <div class="value">{{ user?.balance || 0 | currency:'THB':'symbol':'1.0-0' }}</div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="chip" (click)="goTopup()">เติมเงิน</button>
+        <button class="chip" (click)="goPurchaseHistory()">ประวัติการซื้อ</button>
+        <button class="chip" (click)="goTopupHistory()">ประวัติการเติมเงิน</button>
+        <button class="chip primary" (click)="openEditProfile()">แก้ไขข้อมูล</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 🔄 Loading Template -->
+<ng-template #loadingTpl>
+  <div class="loading">
+    <p>⏳ กำลังโหลดข้อมูลโปรไฟล์...</p>
+  </div>
+</ng-template>

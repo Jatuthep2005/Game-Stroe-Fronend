@@ -1,0 +1,44 @@
+<div class="topup-container">
+  <div class="topup-box">
+    <!-- แถบหัว + ปุ่มย้อนกลับ -->
+    <div class="topup-header">
+      <button class="btn-back" (click)="goBack()">ย้อนกลับ</button>
+
+      <div class="wallet">
+        <img class="wallet-logo" src="images/true.png" alt="TrueMoney Wallet" />
+        <div class="wallet-info">
+          <div class="wallet-name">True Money Wallet</div>
+          <div class="wallet-number">{{ wallet.number }}</div>
+          <div class="wallet-owner">{{ wallet.owner }}</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ปุ่มจำนวนยอดสำเร็จรูป -->
+    <div class="preset-row">
+      <button *ngFor="let p of presets"
+              class="chip"
+              [class.active]="amount === p"
+              (click)="selectPreset(p)">
+      </button>
+    </div>
+
+    <!-- กรอกจำนวนเอง -->
+    <div class="form-group">
+      <label for="custom">กรอกจำนวนเงิน</label>
+      <input id="custom"
+             type="number"
+             min="1"
+             class="form-input"
+             (input)="onCustomChange()" />
+      <div class="hint" *ngIf="amount>0">ยอดที่จะเติม: <b></b></div>
+      <div class="error" *ngIf="error">{{ error }}</div>
+    </div>
+
+    <!-- ปุ่มดำเนินการ -->
+    <div class="actions">
+      <button class="btn-primary" [disabled]="!canSubmit()" (click)="submitTopup()">เติมเงิน</button>
+      <button class="btn-ghost" (click)="cancel()">ยกเลิก</button>
+    </div>
+  </div>
+</div>

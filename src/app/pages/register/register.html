@@ -1,0 +1,81 @@
+<div class="register-container">
+  <div class="register-box">
+    <h1 class="register-title">สมัครสมาชิก</h1>
+
+    <form class="register-form" (ngSubmit)="onSubmit()">
+      <!-- ชื่อผู้ใช้งาน -->
+      <div class="form-group">
+        <label for="username">ชื่อผู้ใช้งาน <span class="required">*</span></label>
+        <input
+          type="text"
+          id="username"
+          class="form-input"
+          [(ngModel)]="formData.name"
+          name="name"
+          required
+        />
+      </div>
+
+      <!-- อีเมล -->
+      <div class="form-group">
+        <label for="email">อีเมล <span class="required">*</span></label>
+        <input
+          type="email"
+          id="email"
+          class="form-input"
+          [(ngModel)]="formData.email"
+          name="email"
+          required
+        />
+      </div>
+
+      <!-- รหัสผ่าน -->
+      <div class="form-group">
+        <label for="password">รหัสผ่าน <span class="required">*</span></label>
+        <input
+          type="password"
+          id="password"
+          class="form-input"
+          [(ngModel)]="formData.password"
+          name="password"
+          required
+        />
+      </div>
+
+      <!-- ยืนยันรหัสผ่าน -->
+      <div class="form-group">
+        <label for="confirmPassword">ยืนยันรหัสผ่าน <span class="required">*</span></label>
+        <input
+          type="password"
+          id="confirmPassword"
+          class="form-input"
+          [(ngModel)]="formData.confirmPassword"
+          name="confirmPassword"
+          required
+        />
+      </div>
+
+      <!-- URL รูปโปรไฟล์ -->
+      <div class="form-group">
+        <label for="profileImage">รูปโปรไฟล์ (URL)</label>
+        <input
+          type="text"
+          id="profileImage"
+          class="form-input"
+          [(ngModel)]="formData.profileImage"
+          name="profileImage"
+          placeholder="URL ของรูปโปรไฟล์ (ใส่หรือไม่ใส่ก็ได้)"
+        />
+      </div>
+
+      <!-- ปุ่มสมัครสมาชิก -->
+      <button type="submit" class="btn-register">สมัครสมาชิก</button>
+
+      <!-- ลิงก์เข้าสู่ระบบ -->
+      <div class="login-link">
+        <span>เป็นสมาชิกอยู่แล้ว?</span>
+        <a class="link" (click)="goLogin($event)">เข้าสู่ระบบ</a>
+      </div>
+    </form>
+  </div>
+</div>
